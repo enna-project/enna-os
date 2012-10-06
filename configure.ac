@@ -19,6 +19,17 @@ AC_INIT(ennaos, 1.0)
 AC_PREREQ([2.61])
 AC_COPYRIGHT([Copyright 2012 Enna Project])
 
+# download_directory
+AC_MSG_CHECKING([download_directory])
+m4_define([ennaos_default_download_directory], [./downloads])
+AC_ARG_ENABLE([download_directory], [AS_HELP_STRING([--enable-download_directory=M],
+		     set DOWNLOAD_DIRECTORY (default: "ennaos_default_download_directory"))],
+		     [],
+		     [enable_download_directory="ennaos_default_download_directory"])
+AC_SUBST([download_directory], [$enable_download_directory])
+AC_MSG_RESULT([$enable_download_directory])
+
+
 # parallel_make
 AC_MSG_CHECKING([parallel_make])
 m4_define([ennaos_default_parallel_make], [1])
@@ -45,31 +56,9 @@ esac
 AC_SUBST([bb_number_threads], [$enable_bb_number_threads])
 AC_MSG_RESULT([$enable_bb_number_threads])
 
-# premirror
-AC_MSG_CHECKING([premirror])
-m4_define([ennaos_default_premirror], [http://downloads.yoctoproject.org/mirror/sources])
-AC_ARG_ENABLE([premirror], [AS_HELP_STRING([--enable-premirror=M],
-		     set PREMIRROR (default: "ennaos_default_premirror"))],
-		     [],
-		     [enable_premirror="ennaos_default_premirror"])
-AC_SUBST([premirror], [$enable_premirror])
-AC_MSG_RESULT([$enable_premirror])
-
-# generate-mirror-tarballs
-AC_MSG_CHECKING([generate_mirror_tarballs])
-AC_ARG_ENABLE([generate_mirror_tarballs], [AS_HELP_STRING([--enable-generate-mirror-tarballs],
-		     generate tarballs suitable for mirroring (default: "False"))],
-		     [case "$enableval" in
-yes) enable_generatemirrortarballs="1" ;;
-no) enable_generatemirrortarballs="0" ;;
-esac],
-		     [enable_generatemirrortarballs="0"])
-AC_SUBST([generatemirrortarballs], [$enable_generatemirrortarballs])
-AC_MSG_RESULT([$enable_generatemirrortarballs])
-
 # bitbake
 AC_MSG_CHECKING([bitbake])
-m4_define([bitbake_layer_location], ['${PALMDIR}/bitbake'])
+m4_define([bitbake_layer_location], ['${TOPDIR}/src/bitbake'])
 m4_define([bitbake_default_bitbake], ['True'])
 AC_ARG_ENABLE([bitbake], [AS_HELP_STRING([--enable-bitbake],
 		     [configure to include bitbake (default: enabled)])],
@@ -85,7 +74,7 @@ AC_MSG_RESULT([$bitbake])
 
 # oecore
 AC_MSG_CHECKING([oecore])
-m4_define([oecore_layer_location], ['${PALMDIR}/openembedded-core/meta'])
+m4_define([oecore_layer_location], ['${TOPDIR}/src/openembedded-core/meta'])
 m4_define([oecore_default_oecore], ['True'])
 AC_ARG_ENABLE([oecore], [AS_HELP_STRING([--enable-oecore],
 		     [configure to include oecore (default: enabled)])],
@@ -101,7 +90,7 @@ AC_MSG_RESULT([$oecore])
 
 # meta-enna
 AC_MSG_CHECKING([ennaos])
-m4_define([metaenna_layer_location], ['${PALMDIR}/meta-enna'])
+m4_define([ennaos_layer_location], ['${TOPDIR}/src/meta-enna'])
 m4_define([ennaos_default_ennaos], ['True'])
 AC_ARG_ENABLE([ennaos], [AS_HELP_STRING([--enable-ennaos],
 		     [configure to include ennaos (default: enabled)])],
@@ -118,7 +107,7 @@ AC_MSG_RESULT([$ennaos])
 # metaoe
 AC_MSG_CHECKING([metaoe])
 
-m4_define([metaoe_layer_location], ['${PALMDIR}/meta-oe/meta-oe'])
+m4_define([metaoe_layer_location], ['${TOPDIR}/src/meta-openembedded/meta-oe'])
 m4_define([ennaos_default_metaoe], ['True'])
 AC_ARG_ENABLE([metaoe], [AS_HELP_STRING([--enable-metaoe],
 		     [configure to include metaoe (default: enabled)])],
@@ -135,7 +124,7 @@ AC_MSG_RESULT([$metaoe])
 # metaallwinner
 AC_MSG_CHECKING([metaallwinner])
 
-m4_define([metaallwinner_layer_location], ['${PALMDIR}/meta-allwinner'])
+m4_define([metaallwinner_layer_location], ['${TOPDIR}/src/meta-allwinner'])
 m4_define([ennaos_default_metaallwinner], ['True'])
 AC_ARG_ENABLE([metaallwinner], [AS_HELP_STRING([--enable-metaallwinner],
 		     [configure to include metaallwinner (default: enabled)])],
@@ -149,10 +138,26 @@ AC_SUBST([metaallwinner], $enable_metaallwinner)
 AC_SUBST([metaallwinner_layer], $enable_metaallwinner_layer)
 AC_MSG_RESULT([$metaallwinner])
 
+# metaangstrom
+AC_MSG_CHECKING([metaangstrom])
+
+m4_define([metaangstrom_layer_location], ['${TOPDIR}/src/meta-angstrom'])
+m4_define([ennaos_default_metaangstrom], ['True'])
+AC_ARG_ENABLE([metaangstrom], [AS_HELP_STRING([--enable-metaangstrom],
+		     [configure to include metaangstrom (default: enabled)])],
+		     [enable_metaangstrom=$enableval],
+		     [enable_metaangstrom=ennaos_default_metaangstrom])
+case "$enable_metaangstrom" in
+     no) enable_metaangstrom_layer='' ;;
+     *) enable_metaangstrom_layer=metaangstrom_layer_location ;;
+esac
+AC_SUBST([metaangstrom], $enable_metaangstrom)
+AC_SUBST([metaangstrom_layer], $enable_metaangstrom_layer)
+AC_MSG_RESULT([$metaangstrom])
 
 
-AC_CONFIG_FILES([Makefile:build-templates/Makefile.in])
-AC_CONFIG_FILES([bitbake.rc:build-templates/bitbake-rc.in])
-AC_CONFIG_FILES([conf/bblayers.conf:build-templates/bblayers-conf.in])
-AC_CONFIG_FILES([conf/local.conf:build-templates/local-conf.in])
+
+AC_CONFIG_FILES([Makefile:conf.in/Makefile.in])
+AC_CONFIG_FILES([conf/bblayers.conf:conf.in/bblayers.conf.in])
+AC_CONFIG_FILES([conf/local.conf:conf.in/local.conf.in])
 AC_OUTPUT
