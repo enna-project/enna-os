@@ -16,3 +16,6 @@
 [submodule "src/meta-allwinner"]
 	path = src/meta-allwinner
 	url = git://github.com/naguirre/meta-allwinner.git
+[submodule "src/meta-angstrom"]
+	path = src/meta-angstrom
+	url = git://github.com/Angstrom-distribution/meta-angstrom
