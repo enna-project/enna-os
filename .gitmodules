@@ -1,0 +1,18 @@
+[submodule "src/bitbake"]
+	path = src/bitbake
+	url = git://github.com/openembedded/bitbake.git
+[submodule "src/meta-openembedded"]
+	path = src/meta-openembedded
+	url = git://github.com/openembedded/meta-oe.git
+[submodule "src/meta/oe-core"]
+	path = src/meta/oe-core
+	url = git://github.com/openembedded/oe-core.git
+[submodule "src/meta-enna"]
+	path = src/meta-enna
+	url = git://github.com/naguirre/meta-enna.git
+[submodule "src/openembedded-core"]
+	path = src/openembedded-core
+	url = git://github.com/openembedded/oe-core.git
+[submodule "src/meta-allwinner"]
+	path = src/meta-allwinner
+	url = git://github.com/naguirre/meta-allwinner.git
