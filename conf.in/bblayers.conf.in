@@ -1,0 +1,13 @@
+# LAYER_CONF_VERSION is increased each time conf/bblayers.conf
+# changes incompatibly
+
+LCONF_VERSION = "4"
+
+BBFILES ?= ""
+BBLAYERS ?= " \
+  @metaoe_layer@ \
+  @metaangstrom_layer@ \
+  @oecore_layer@ \
+  @metaallwinner_layer@ \
+  @ennaos_layer@ \
+  "
