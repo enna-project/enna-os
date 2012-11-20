@@ -1,5 +1,5 @@
 #!/bin/sh
 
 autoreconf -vif
-git submodule update
+git submodule update --init
 ./configure $@
