@@ -9,6 +9,9 @@ BBLAYERS ?= " \
   @metaoe_layer@ \
   ${TOPDIR}/src/meta-openembedded/meta-efl \
   ${TOPDIR}/src/meta-openembedded/meta-systemd \
+  ${TOPDIR}/src/meta-openembedded/meta-gnome \
+  ${TOPDIR}/src/meta-openembedded/meta-multimedia \
+  ${TOPDIR}/src/meta-openembedded/meta-networking \
   @metaangstrom_layer@ \
   @oecore_layer@ \
   @metaallwinner_layer@ \
