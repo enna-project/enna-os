@@ -6,14 +6,16 @@ LCONF_VERSION = "5"
 BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 BBLAYERS ?= " \
-  @metaoe_layer@ \
+  ${TOPDIR}/src/meta-openembedded/meta-oe \
   ${TOPDIR}/src/meta-openembedded/meta-efl \
   ${TOPDIR}/src/meta-openembedded/meta-systemd \
   ${TOPDIR}/src/meta-openembedded/meta-gnome \
   ${TOPDIR}/src/meta-openembedded/meta-multimedia \
   ${TOPDIR}/src/meta-openembedded/meta-networking \
-  @metaangstrom_layer@ \
-  @oecore_layer@ \
-  @metaallwinner_layer@ \
-  @ennaos_layer@ \
+  ${TOPDIR}/src/meta-angstrom \
+  ${TOPDIR}/src/openembedded-core/meta \
+  ${TOPDIR}/src/meta-allwinner \
+  ${TOPDIR}/src/meta-intel/ \
+  ${TOPDIR}/src/meta-intel/meta-n450 \
+  ${TOPDIR}/src/meta-enna \
   "

@@ -19,3 +19,6 @@
 [submodule "src/meta-angstrom"]
 	path = src/meta-angstrom
 	url = git://github.com/Angstrom-distribution/meta-angstrom
+[submodule "src/meta-intel"]
+	path = src/meta-intel
+	url = git://git.yoctoproject.org/meta-intel
