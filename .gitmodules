@@ -22,3 +22,6 @@
 [submodule "src/meta-intel"]
 	path = src/meta-intel
 	url = git://git.yoctoproject.org/meta-intel
+[submodule "src/meta-cubox"]
+	path = src/meta-cubox
+	url = https://github.com/naguirre/meta-cubox.git
