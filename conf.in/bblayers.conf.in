@@ -12,10 +12,12 @@ BBLAYERS ?= " \
   ${TOPDIR}/src/meta-openembedded/meta-gnome \
   ${TOPDIR}/src/meta-openembedded/meta-multimedia \
   ${TOPDIR}/src/meta-openembedded/meta-networking \
+  ${TOPDIR}/src/meta-openembedded/meta-webserver \
   ${TOPDIR}/src/meta-angstrom \
   ${TOPDIR}/src/openembedded-core/meta \
   ${TOPDIR}/src/meta-allwinner \
-  ${TOPDIR}/src/meta-intel/ \
+  ${TOPDIR}/src/meta-intel \
   ${TOPDIR}/src/meta-intel/meta-n450 \
+  ${TOPDIR}/src/meta-cubox \
   ${TOPDIR}/src/meta-enna \
   "
