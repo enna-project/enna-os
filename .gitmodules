@@ -25,3 +25,6 @@
 [submodule "src/meta-cubox"]
 	path = src/meta-cubox
 	url = https://github.com/naguirre/meta-cubox.git
+[submodule "src/meta-raspberrypi"]
+	path = src/meta-raspberrypi
+	url = git://git.yoctoproject.org/meta-raspberrypi
