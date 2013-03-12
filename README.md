@@ -7,6 +7,7 @@ To build an image for atom n450 :
 
 git clone https://github.com/enna-project/enna-os.git
 cd enna-os
+git submodule init
 git submodule update
 source env.sh
 bitbake calaos-touch-image
