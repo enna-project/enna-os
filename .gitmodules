@@ -28,3 +28,6 @@
 [submodule "src/meta-raspberrypi"]
 	path = src/meta-raspberrypi
 	url = git://git.yoctoproject.org/meta-raspberrypi
+[submodule "src/meta-ti"]
+	path = src/meta-ti
+	url = git://git.yoctoproject.org/meta-ti
