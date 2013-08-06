@@ -3,7 +3,7 @@
 	url = git://github.com/openembedded/bitbake.git
 [submodule "src/meta-openembedded"]
 	path = src/meta-openembedded
-	url = git://github.com/naguirre/meta-oe.git
+	url = git://git.openembedded.org/meta-openembedded
 [submodule "src/meta/oe-core"]
 	path = src/meta/oe-core
 	url = git://github.com/openembedded/oe-core.git
