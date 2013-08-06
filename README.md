@@ -13,6 +13,8 @@ git submodule init
 
 git submodule update
 
+./fixup.sh
+
 source env.sh
 
 bitbake calaos-image
