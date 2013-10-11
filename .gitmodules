@@ -9,7 +9,7 @@
 	url = git://github.com/openembedded/oe-core.git
 [submodule "src/meta-calaos"]
 	path = src/meta-calaos
-	url = git://github.com/calaos/meta-calaos.git
+	url = http://github.com/calaos/meta-calaos
 [submodule "src/openembedded-core"]
 	path = src/openembedded-core
 	url = git://github.com/openembedded/oe-core.git
