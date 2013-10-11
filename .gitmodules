@@ -7,9 +7,9 @@
 [submodule "src/meta/oe-core"]
 	path = src/meta/oe-core
 	url = git://github.com/openembedded/oe-core.git
-[submodule "src/meta-enna"]
-	path = src/meta-enna
-	url = git://github.com/naguirre/meta-enna.git
+[submodule "src/meta-calaos"]
+	path = src/meta-calaos
+	url = git://github.com/calaos/meta-calaos.git
 [submodule "src/openembedded-core"]
 	path = src/openembedded-core
 	url = git://github.com/openembedded/oe-core.git
